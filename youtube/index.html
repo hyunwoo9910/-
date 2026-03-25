@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube 채널 일별 조회수 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <span class="logo-icon">▶</span>
+          <h1 class="header-title">YouTube 채널 분석</h1>
+        </div>
+        <div class="api-key-area">
+          <input type="password" id="apiKeyInput" class="api-input" placeholder="YouTube Data API v3 키 입력" />
+          <button id="saveKeyBtn" class="btn btn-primary">저장</button>
+          <span id="keyStatus" class="key-status"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Category Tabs -->
+    <div class="tabs-bar">
+      <div class="tabs">
+        <button class="tab active" data-category="쇼핑" data-query="쇼핑 추천 하울">🛍️ 쇼핑</button>
+        <button class="tab" data-category="연예" data-query="연예인 예능 드라마">🎬 연예</button>
+        <button class="tab" data-category="먹방" data-query="먹방 맛집">🍜 먹방</button>
+      </div>
+      <div class="tab-actions">
+        <select id="sortSelect" class="sort-select">
+          <option value="viewCount">조회수 순</option>
+          <option value="subscriberCount">구독자 순</option>
+          <option value="dailyChange">일별 증가 순</option>
+        </select>
+        <button id="refreshBtn" class="btn btn-outline">
+          <span id="refreshIcon">↻</span> 새로고침
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="statsBar" style="display:none">
+      <div class="stat-item">
+        <span class="stat-label">분석 채널 수</span>
+        <span class="stat-value" id="totalChannels">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">마지막 업데이트</span>
+        <span class="stat-value" id="lastUpdated">-</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">일별 변화 추적</span>
+        <span class="stat-value" id="trackingStatus">-</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">🔑</div>
+        <h2>API 키를 입력해주세요</h2>
+        <p>YouTube Data API v3 키를 입력하면<br/>카테고리별 인기 채널을 불러옵니다.</p>
+        <div class="api-guide">
+          <strong>API 키 발급 방법</strong>
+          <ol>
+            <li>Google Cloud Console 접속</li>
+            <li>새 프로젝트 생성</li>
+            <li>YouTube Data API v3 사용 설정</li>
+            <li>사용자 인증 정보 → API 키 만들기</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div id="loadingState" class="loading-state" style="display:none">
+        <div class="spinner"></div>
+        <p>채널 데이터를 불러오는 중...</p>
+      </div>
+
+      <!-- Error -->
+      <div id="errorState" class="error-state" style="display:none">
+        <div class="error-icon">⚠️</div>
+        <h2 id="errorTitle">오류가 발생했습니다</h2>
+        <p id="errorMsg"></p>
+        <button class="btn btn-primary" onclick="retryFetch()">다시 시도</button>
+      </div>
+
+      <!-- Channel Grid -->
+      <div id="channelGrid" class="channel-grid" style="display:none"></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
