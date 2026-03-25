@@ -3,69 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>채널명 - YouTube 채널 소개</title>
+  <title>크리에이터 채널 - YouTube 포트폴리오</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <span class="logo-icon">▶</span>
-        채널명
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span>채널명</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#about">소개</a></li>
-        <li><a href="#stats">채널 현황</a></li>
-        <li><a href="#videos">영상</a></li>
-        <li><a href="#contact">연락처</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">소개</a></li>
+        <li><a href="#stats" class="nav-link">채널 현황</a></li>
+        <li><a href="#videos" class="nav-link">영상</a></li>
+        <li><a href="#contact" class="nav-link">연락처</a></li>
       </ul>
-      <a href="https://youtube.com/@채널명" target="_blank" class="btn btn-subscribe">
-        구독하기
-      </a>
+      <div class="nav-right">
+        <a href="https://youtube.com/@채널명" target="_blank" class="btn btn-subscribe">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>
+          구독하기
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="메뉴">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg"></div>
+  <section class="hero" id="hero">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-glow"></div>
     <div class="container hero-inner">
-      <div class="profile-wrapper">
-        <div class="profile-avatar">
-          <span class="avatar-placeholder">▶</span>
+      <div class="hero-content" data-aos="fade-up">
+        <div class="profile-wrapper">
+          <div class="profile-ring"></div>
+          <div class="profile-avatar">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="52" height="52"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="profile-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg>
+            유튜버
+          </div>
+          <div class="live-dot" title="활동 중"></div>
         </div>
-        <div class="profile-badge">유튜버</div>
+
+        <div class="hero-tags">
+          <span class="hero-tag"># 브이로그</span>
+          <span class="hero-tag"># 테크</span>
+          <span class="hero-tag"># 라이프스타일</span>
+        </div>
+
+        <h1 class="hero-title">
+          안녕하세요,<br />
+          <span class="highlight gradient-text">채널명</span>입니다
+        </h1>
+
+        <p class="hero-desc">
+          일상의 소소한 이야기부터 최신 테크 리뷰까지,<br />
+          매주 새로운 콘텐츠로 여러분을 찾아갑니다.
+        </p>
+
+        <div class="hero-quick-stats">
+          <div class="quick-stat">
+            <strong>12.4만</strong>
+            <span>구독자</span>
+          </div>
+          <div class="quick-stat-divider"></div>
+          <div class="quick-stat">
+            <strong>3,200만+</strong>
+            <span>총 조회수</span>
+          </div>
+          <div class="quick-stat-divider"></div>
+          <div class="quick-stat">
+            <strong>245개</strong>
+            <span>영상</span>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="https://youtube.com/@채널명" target="_blank" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+            YouTube 채널 방문
+          </a>
+          <a href="#videos" class="btn btn-glass btn-lg">최신 영상 보기</a>
+        </div>
       </div>
-      <h1 class="hero-title">안녕하세요,<br /><span class="highlight">채널명</span>입니다</h1>
-      <p class="hero-desc">여기에 채널 소개 문구를 작성하세요.<br />어떤 콘텐츠를 만드는지 간략하게 설명해 보세요.</p>
-      <div class="hero-cta">
-        <a href="https://youtube.com/@채널명" target="_blank" class="btn btn-primary btn-lg">
-          <span class="yt-icon">▶</span> YouTube 채널 방문
-        </a>
-        <a href="#videos" class="btn btn-outline btn-lg">영상 보기</a>
-      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>스크롤</span>
     </div>
   </section>
 
   <!-- Stats -->
   <section id="stats" class="stats">
-    <div class="container stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">0만</div>
-        <div class="stat-label">구독자</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">0만+</div>
-        <div class="stat-label">총 조회수</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">0개</div>
-        <div class="stat-label">업로드 영상</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">0년</div>
-        <div class="stat-label">크리에이터 활동</div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="124000" data-suffix="만" data-format="wan">12.4만</div>
+          <div class="stat-label">구독자</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:82%"></div></div>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="3200" data-suffix="만+" data-format="exact">3,200만+</div>
+          <div class="stat-label">총 조회수</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:95%"></div></div>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="245" data-suffix="개" data-format="exact">245개</div>
+          <div class="stat-label">업로드 영상</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:68%"></div></div>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="5" data-suffix="년+" data-format="exact">5년+</div>
+          <div class="stat-label">크리에이터 활동</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:55%"></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -73,38 +170,64 @@
   <!-- About -->
   <section id="about" class="about">
     <div class="container about-inner">
-      <div class="about-text">
+      <div class="about-text" data-aos="fade-right">
         <span class="section-tag">About Me</span>
         <h2 class="section-title">저는 이런 사람이에요</h2>
-        <p>여기에 자신에 대한 소개를 작성하세요. 유튜브를 시작하게 된 계기, 채널에서 다루는 주제, 시청자에게 전달하고 싶은 메시지 등을 자유롭게 적어보세요.</p>
-        <p>두 번째 단락에는 추가적인 정보나 채널의 방향성에 대해 작성할 수 있습니다.</p>
+        <p>안녕하세요! 저는 <strong>채널명</strong>을 운영하는 크리에이터입니다. 2019년부터 YouTube를 시작해 다양한 콘텐츠를 제작하고 있습니다.</p>
+        <p>일상 브이로그, 최신 테크 제품 리뷰, 그리고 라이프스타일 콘텐츠를 통해 시청자분들과 함께 성장해 나가고 있습니다. 매주 고품질 콘텐츠를 제공하기 위해 노력하고 있어요.</p>
+        <p>콘텐츠를 만드는 것뿐만 아니라 시청자분들과의 소통을 가장 중요하게 생각합니다. 댓글 하나하나에 감사하며 여러분의 이야기를 듣고 싶습니다.</p>
         <div class="about-tags">
-          <span class="tag">#태그1</span>
-          <span class="tag">#태그2</span>
-          <span class="tag">#태그3</span>
-          <span class="tag">#태그4</span>
+          <span class="tag">#브이로그</span>
+          <span class="tag">#테크리뷰</span>
+          <span class="tag">#라이프스타일</span>
+          <span class="tag">#일상</span>
+          <span class="tag">#먹방</span>
         </div>
       </div>
-      <div class="about-image">
+
+      <div class="about-right" data-aos="fade-left">
         <div class="about-card">
-          <div class="about-avatar-lg">▶</div>
+          <div class="about-avatar-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </div>
           <div class="about-card-info">
             <strong>채널명</strong>
-            <span>채널 개설일: 0000년</span>
+            <span>채널 개설일: 2019년 3월</span>
+          </div>
+          <div class="verified-badge" title="인증된 채널">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
         </div>
-        <div class="about-fact">
+
+        <div class="about-fact" data-aos="fade-left" data-aos-delay="100">
           <span class="fact-icon">🎬</span>
           <div>
             <strong>콘텐츠 카테고리</strong>
-            <span>카테고리 1 · 카테고리 2 · 카테고리 3</span>
+            <span>브이로그 · 테크 리뷰 · 라이프스타일</span>
           </div>
         </div>
-        <div class="about-fact">
+
+        <div class="about-fact" data-aos="fade-left" data-aos-delay="180">
           <span class="fact-icon">📅</span>
           <div>
             <strong>업로드 주기</strong>
-            <span>매주 0요일</span>
+            <span>매주 수요일, 토요일 오후 6시</span>
+          </div>
+        </div>
+
+        <div class="about-fact" data-aos="fade-left" data-aos-delay="260">
+          <span class="fact-icon">🏆</span>
+          <div>
+            <strong>수상 및 성과</strong>
+            <span>YouTube 실버 버튼 · 최우수 크리에이터상</span>
+          </div>
+        </div>
+
+        <div class="about-fact" data-aos="fade-left" data-aos-delay="340">
+          <span class="fact-icon">🌏</span>
+          <div>
+            <strong>주요 시청자</strong>
+            <span>대한민국 · 일본 · 북미 한국 교민</span>
           </div>
         </div>
       </div>
@@ -114,147 +237,278 @@
   <!-- Featured Videos -->
   <section id="videos" class="videos">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header" data-aos="fade-up">
         <span class="section-tag">Featured</span>
         <h2 class="section-title">인기 영상</h2>
-        <p class="section-desc">채널의 대표 영상들을 소개합니다.</p>
+        <p class="section-desc">채널의 대표 영상들을 소개합니다. 구독하고 새 영상을 놓치지 마세요!</p>
       </div>
-      <div class="videos-grid">
 
-        <!-- 영상 카드 1: YouTube video ID를 src에 입력하세요 -->
-        <div class="video-card">
+      <!-- Video Filter Tabs -->
+      <div class="video-filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="vlog">브이로그</button>
+        <button class="filter-btn" data-filter="tech">테크</button>
+        <button class="filter-btn" data-filter="lifestyle">라이프</button>
+      </div>
+
+      <div class="videos-grid" id="videosGrid">
+
+        <!-- Video Card 1 -->
+        <div class="video-card" data-category="vlog" data-aos="fade-up" data-aos-delay="0">
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_1"
-              title="영상 제목 1"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="서울 하루 브이로그 | 성수동 카페 투어"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 1</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge vlog">브이로그</div>
+            <h3 class="video-title">서울 하루 브이로그 | 성수동 카페 투어</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 98만회
+              </span>
+              <span class="video-date">3일 전</span>
+            </div>
           </div>
         </div>
 
-        <!-- 영상 카드 2 -->
-        <div class="video-card">
+        <!-- Video Card 2 -->
+        <div class="video-card featured" data-category="tech" data-aos="fade-up" data-aos-delay="80">
+          <div class="featured-label">🔥 인기</div>
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_2"
-              title="영상 제목 2"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="iPhone 16 Pro 6개월 실사용 솔직 리뷰"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 2</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge tech">테크</div>
+            <h3 class="video-title">iPhone 16 Pro 6개월 실사용 솔직 리뷰</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 245만회
+              </span>
+              <span class="video-date">1주일 전</span>
+            </div>
           </div>
         </div>
 
-        <!-- 영상 카드 3 -->
-        <div class="video-card">
+        <!-- Video Card 3 -->
+        <div class="video-card" data-category="lifestyle" data-aos="fade-up" data-aos-delay="160">
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_3"
-              title="영상 제목 3"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="하루 루틴 공개 | 크리에이터의 일상"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 3</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge lifestyle">라이프</div>
+            <h3 class="video-title">하루 루틴 공개 | 크리에이터의 일상</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 67만회
+              </span>
+              <span class="video-date">2주일 전</span>
+            </div>
           </div>
         </div>
 
-        <!-- 영상 카드 4 -->
-        <div class="video-card">
+        <!-- Video Card 4 -->
+        <div class="video-card" data-category="tech" data-aos="fade-up" data-aos-delay="0">
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_4"
-              title="영상 제목 4"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="2025 최고의 무선 이어폰 TOP 5 비교"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 4</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge tech">테크</div>
+            <h3 class="video-title">2025 최고의 무선 이어폰 TOP 5 비교</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 134만회
+              </span>
+              <span class="video-date">3주일 전</span>
+            </div>
           </div>
         </div>
 
-        <!-- 영상 카드 5 -->
-        <div class="video-card">
+        <!-- Video Card 5 -->
+        <div class="video-card" data-category="vlog" data-aos="fade-up" data-aos-delay="80">
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_5"
-              title="영상 제목 5"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="도쿄 여행 4박 5일 총정리 브이로그"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 5</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge vlog">브이로그</div>
+            <h3 class="video-title">도쿄 여행 4박 5일 총정리 브이로그</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 189만회
+              </span>
+              <span class="video-date">1개월 전</span>
+            </div>
           </div>
         </div>
 
-        <!-- 영상 카드 6 -->
-        <div class="video-card">
+        <!-- Video Card 6 -->
+        <div class="video-card" data-category="lifestyle" data-aos="fade-up" data-aos-delay="160">
           <div class="video-thumb">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_6"
-              title="영상 제목 6"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="월 100만원으로 사는 법 | 절약 노하우 대공개"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
           <div class="video-info">
-            <h3 class="video-title">영상 제목 6</h3>
-            <p class="video-meta">조회수 0만회 · 0일 전</p>
+            <div class="video-category-badge lifestyle">라이프</div>
+            <h3 class="video-title">월 100만원으로 사는 법 | 절약 노하우 대공개</h3>
+            <div class="video-meta-row">
+              <span class="video-views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                조회수 312만회
+              </span>
+              <span class="video-date">2개월 전</span>
+            </div>
           </div>
         </div>
 
       </div>
-      <div class="videos-more">
+
+      <div class="videos-more" data-aos="fade-up">
         <a href="https://youtube.com/@채널명" target="_blank" class="btn btn-outline btn-lg">
-          더 많은 영상 보기 →
+          더 많은 영상 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Contact / Subscribe CTA -->
+  <!-- Contact -->
   <section id="contact" class="contact">
+    <div class="contact-bg-pattern"></div>
     <div class="container contact-inner">
-      <div class="contact-text">
+
+      <div class="contact-left" data-aos="fade-right">
         <span class="section-tag light">Contact</span>
-        <h2>함께해요!</h2>
-        <p>비즈니스 문의나 협업 제안은 아래 이메일로 연락해 주세요.</p>
-        <a href="mailto:your@email.com" class="contact-email">your@email.com</a>
+        <h2 class="contact-title">함께 만들어요</h2>
+        <p class="contact-desc">비즈니스 문의, 광고 제안, 콜라보레이션은<br />언제든지 연락해 주세요!</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong>이메일</strong>
+              <a href="mailto:contact@channel.com" class="contact-link">contact@channel.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>위치</strong>
+              <span>서울, 대한민국</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>응답 시간</strong>
+              <span>평균 24시간 이내</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://youtube.com/@채널명" target="_blank" class="social-btn youtube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+            YouTube
+          </a>
+          <a href="https://instagram.com/채널명" target="_blank" class="social-btn instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://twitter.com/채널명" target="_blank" class="social-btn twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            Twitter
+          </a>
+        </div>
       </div>
-      <div class="social-links">
-        <a href="https://youtube.com/@채널명" target="_blank" class="social-btn youtube">
-          <span class="social-icon">▶</span>
-          YouTube
-        </a>
-        <a href="https://instagram.com/채널명" target="_blank" class="social-btn instagram">
-          <span class="social-icon">📸</span>
-          Instagram
-        </a>
-        <a href="https://twitter.com/채널명" target="_blank" class="social-btn twitter">
-          <span class="social-icon">🐦</span>
-          Twitter
-        </a>
+
+      <div class="contact-right" data-aos="fade-left">
+        <form class="contact-form" id="contactForm" novalidate>
+          <h3 class="form-title">메시지 보내기</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">이름</label>
+              <input type="text" id="name" name="name" placeholder="홍길동" required />
+            </div>
+            <div class="form-group">
+              <label for="email">이메일</label>
+              <input type="email" id="email" name="email" placeholder="hello@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">문의 유형</label>
+            <select id="subject" name="subject">
+              <option value="">선택해 주세요</option>
+              <option value="business">비즈니스 제안</option>
+              <option value="collab">콜라보레이션</option>
+              <option value="ad">광고 문의</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">메시지</label>
+            <textarea id="message" name="message" rows="5" placeholder="안녕하세요! 문의 내용을 입력해 주세요..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full" id="submitBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            메시지 전송
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24"><polyline points="20 6 9 17 4 12"/></svg>
+            메시지가 성공적으로 전송되었습니다!
+          </div>
+        </form>
       </div>
+
     </div>
   </section>
 
@@ -262,10 +516,16 @@
   <footer class="footer">
     <div class="container footer-inner">
       <a href="#" class="logo footer-logo">
-        <span class="logo-icon">▶</span>
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>
+        </div>
         채널명
       </a>
       <p class="footer-copy">© 2026 채널명. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+      </div>
     </div>
   </footer>
 
